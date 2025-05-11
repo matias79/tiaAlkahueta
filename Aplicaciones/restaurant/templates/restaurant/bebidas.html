@@ -1,0 +1,36 @@
+{% extends "restaurant/base.html" %}
+{% load static %}
+{% block title %}Bebidas{% endblock title %}
+
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center mt-2">
+  {% for bebida in productos %}
+    <div class="card m-1" style="width: 18rem;">
+        <img src="{{bebida.imagenProd}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{bebida.nombreProd}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{bebida.precioProd}}</li>
+        </ul>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{bebida.descripcionProd}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="{% url "lista_menu" %}" class="card-link">Volver al Menu</a>
+        </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock body %}
+
+
+
+
+
+
+

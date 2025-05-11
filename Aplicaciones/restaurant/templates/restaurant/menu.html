@@ -1,0 +1,35 @@
+{% extends "restaurant/base.html" %}
+{% load static %}
+{% block title %}Platos Menu{% endblock title %}
+
+
+{% block body %}
+<div class="container-fluid">
+
+  <div class="row d-flex justify-content-center mt-2">
+  {% for menu in menus %}
+    <div class="card m-1" style="width: 18rem;">
+        <img src="{{menu.imagenMenu}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{menu.platoMenu}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{menu.precioMenu}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="{% url "bebidas" %}" class="card-link">Ver Bebidas</a>
+        </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+
+

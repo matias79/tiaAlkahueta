@@ -1,0 +1,3 @@
+PY -c"import secrets; print(secrets.token_urlsafe(50))" // codigo para generar un key secret previa instalacion de pip install python-decouple
+
+para la configuracion de las variables de entorno en settigs se puede hacer de os desde apartado =  pip install python-decouple

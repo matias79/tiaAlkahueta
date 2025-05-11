@@ -1,0 +1,15 @@
+{% extends "restaurant/plantilla_auth.html" %}
+
+{% block title %}Autenticacion{% endblock title %}
+
+
+{% block body %}
+<div class="container bg-dark text-bg-danger d-flex vh-100 align-items-center justify-content-center flex-column">
+    <h3>Iniciar Sesion</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-success w-100">Iniciar Sesion</button>
+    </form>
+</div>
+{% endblock %}
