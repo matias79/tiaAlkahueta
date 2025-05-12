@@ -12,23 +12,24 @@
             <input type="hidden">
             {% csrf_token %}
           <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre Menu</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="salchipapa" value>
+            <label for="nombre" class="form-label">Editar Menu</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{menu.platoMenu}}">
           </div>
           <div class="mb-3">
-            <label for="nombre" class="form-label">Precio Menu</label>
-            <input type="number" class="form-control" id="precio" name="precio" placeholder="25.500" required>
+            <label for="nombre" class="form-label">Editar Precio</label>
+            <input type="number" class="form-control" id="precio" name="precio" value="{{menu.precioMenu}}">
           </div>
           <div class="mb-3">
-            <label for="nombre" class="form-label">Detalle Menu</label>
-            <input type="text" class="form-control" id="detalle" name="detalle" placeholder="Papa francesa, arroz, ensalada" required>
+            <label for="nombre" class="form-label">Editar Detalle</label>
+            <input type="text" class="form-control" id="detalle" name="detalle"  value="{{menu.descripcionMenu}}">
           </div>
           <div class="mb-3">
-            <label for="nombre" class="form-label">Imagen Menu</label>
-            <input type="text" class="form-control" id="imagen" name="imagen" placeholder="link imagen internet " required>
+            <label for="nombre" class="form-label">Editar Imagen</label>
+            <input type="text" class="form-control" id="imagen" name="imagen" value="{{menu.imagenMenu}}">
           </div>
-          
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <a href="{% url "tabla_menu" %}">
+            <button type="submit" class="btn btn-primary">Editar Menu</button>
+          </a>
         </form>
       </div>
       
