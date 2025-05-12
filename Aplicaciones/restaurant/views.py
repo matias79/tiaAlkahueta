@@ -37,6 +37,14 @@ def crear_menu(request):
     else:
         return render(request, 'restaurant/crear_menu.html')
 
+def editar_menu(request, id):
+    menu = Menu.objects.get(idMenu=id)
+    context = {
+        'menu': menu
+    }
+    return render(request, 'restaurant/editar_menu.html')
+    
+
 @login_required(login_url='/login/')
 def eliminar_menu(request, idmen):
     menu = Menu.objects.get(idMenu=idmen)
