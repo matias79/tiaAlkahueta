@@ -8,9 +8,9 @@
       <!-- Columna 1: Formulario -->
       <div class="col-12 col-md-6 mb-4">
         <h3 class="mb-4 text-center text-bg-info">Editar Menu</h3>
-        <form action="", method="post" >
-          <input type="text" value="{{menu.idMenu}}" hidden name="idMenu" id="idMenu">
+        <form action="{% url "editar_precesar_menu" %}", method="post" >
             {% csrf_token %}
+          <input type="text" value="{{menu.idMenu}}" hidden name="idMenu" id="idMenu">
           <div class="mb-3">
             <label for="nombre" class="form-label">Editar Menu</label>
             <input type="text" class="form-control" id="nombre" name="nombre" value="{{menu.platoMenu}}">

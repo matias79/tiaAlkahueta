@@ -59,7 +59,7 @@ def procesar_editar_menu(request):
         menu_editar.descripcionMenu = descripcion
         menu_editar.imagenMenu = imagen
         menu_editar.save()
-        return redirect('/editar_menu')
+        return redirect('/tabla_menu')
 
     
 
