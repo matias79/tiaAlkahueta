@@ -8,8 +8,9 @@
       <!-- Columna 1: Formulario -->
       <div class="col-12 col-md-6 mb-4">
         <h3 class="mb-4 text-center text-bg-info">Editar Menu</h3>
-        <form action="{% url "editar_precesar_menu" %}", method="post" >
+        <form action="", method="post" >
             {% csrf_token %}
+            {% for menu in  menu%}
             <label for="">ide prueba hiden</label>
           <input type="text" value="{{menu.idMenu}}"  name="idMenu" id="idMenu">
           <div class="mb-3">
@@ -30,7 +31,7 @@
           </div>
          
             <button type="submit" class="btn btn-primary">Editar Menu</button>
-        
+        {% endfor %}
         </form>
       </div>
       
@@ -46,3 +47,21 @@
 
 
 
+{% comment "" %}
+ def modificarCliente(request,idcliente):
+    if request.method=="POST":
+        if request.POST.get("cedula") and request.POST.get("nombrecompleto") and request.POST.get("celular"):
+            cliente = Clientes.objects.get(id=idcliente)
+            cliente.cedula = request.POST.get("cedula")
+            cliente.nombrecompleto = request.POST.get("nombrecompleto")
+            cliente.celular = request.POST.get("celular")
+            cliente.save()
+            #return render(request, "clientes/insertar.html")
+            return redirect("/clientes/insertar")
+        
+    else:
+        cliente1 = Clientes.objects.filter(id=idcliente)
+        return render(request, "clientes/actualizar.html",{'cliente':cliente1})
+        #return HttpResponse("No se guardo correctamente el registro")
+
+{% endcomment %}
