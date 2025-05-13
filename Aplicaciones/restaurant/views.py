@@ -43,38 +43,19 @@ def editar_menu(request, id):
         'menu': menu
     }
     if request.method == 'POST':
-        id = request.POST['idMenu']
-        nombre = request.POST['nombre']
-        precio = request.POST['precio']
-        descripcion = request.POST['detalle']
-        imagen = request.POST['imagen']
+        if request.POST.get("nombre") and request.POST.get("precio") and request.POST.get("detalle") and request.POST.get("imagen"):
+            menu= Menu.objects.get(idMenu=id)
+            menu.platoMenu=request.POST.get("nombre")
+            menu.platoMenu=request.POST.get("precio")
+            menu.platoMenu=request.POST.get("detalle")
+            menu.platoMenu=request.POST.get("imagen")
+            menu.save()
+            return render(request, 'restaurant/tablamenu.html')
+        else:
+            return redirect("/tabla_menu")
         
-        menu_editar=Menu.objects.get(idMenu=id)
-        
-        menu_editar.platoMenu=nombre
-        menu_editar.precioMenu = precio
-        menu_editar.descripcionMenu = descripcion
-        menu_editar.imagenMenu = imagen
-        menu_editar.save()
-        return redirect('/tabla_menu')
-    return render(request, 'restaurant/editar_menu.html')
+   
 
-def procesar_editar_menu(request):
-    if request.method == 'POST':
-        id = request.POST['idMenu']
-        nombre = request.POST['nombre']
-        precio = request.POST['precio']
-        descripcion = request.POST['detalle']
-        imagen = request.POST['imagen']
-        
-        menu_editar=Menu.objects.get(idMenu=id)
-        
-        menu_editar.platoMenu=nombre
-        menu_editar.precioMenu = precio
-        menu_editar.descripcionMenu = descripcion
-        menu_editar.imagenMenu = imagen
-        menu_editar.save()
-        return redirect('/tabla_menu')
 
     
 
