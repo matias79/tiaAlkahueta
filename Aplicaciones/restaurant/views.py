@@ -37,14 +37,10 @@ def crear_menu(request):
     else:
         return render(request, 'restaurant/crear_menu.html')
 
-def editar_menu(request, id):
-    menu = Menu.objects.get(idMenu=id)
-    context = {
-        'menu': menu
-    }
+def editar_menu(request, id):   
     if request.method == 'POST':
         if request.POST.get("nombre") and request.POST.get("precio") and request.POST.get("detalle") and request.POST.get("imagen"):
-            menu= Menu.objects.get(idMenu=id)
+            menu = Menu.objects.get(idMenu=id)
             menu.platoMenu=request.POST.get("nombre")
             menu.platoMenu=request.POST.get("precio")
             menu.platoMenu=request.POST.get("detalle")
@@ -52,7 +48,11 @@ def editar_menu(request, id):
             menu.save()
             return render(request, 'restaurant/tablamenu.html')
         else:
-            return redirect("/tabla_menu")
+            menu = Menu.objects.filter(idMenu=id)
+            context = {
+                'menu': menu
+                }
+            return render(request, 'restaurant/tablamenu.html', context)
         
    
 
