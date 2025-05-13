@@ -42,6 +42,21 @@ def editar_menu(request, id):
     context = {
         'menu': menu
     }
+    if request.method == 'POST':
+        id = request.POST['idMenu']
+        nombre = request.POST['nombre']
+        precio = request.POST['precio']
+        descripcion = request.POST['detalle']
+        imagen = request.POST['imagen']
+        
+        menu_editar=Menu.objects.get(idMenu=id)
+        
+        menu_editar.platoMenu=nombre
+        menu_editar.precioMenu = precio
+        menu_editar.descripcionMenu = descripcion
+        menu_editar.imagenMenu = imagen
+        menu_editar.save()
+        return redirect('/tabla_menu')
     return render(request, 'restaurant/editar_menu.html')
 
 def procesar_editar_menu(request):
