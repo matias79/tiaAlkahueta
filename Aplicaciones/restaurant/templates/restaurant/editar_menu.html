@@ -10,6 +10,7 @@
         <h3 class="mb-4 text-center text-bg-info">Editar Menu</h3>
         <form action="{% url "editar_precesar_menu" %}", method="post" >
             {% csrf_token %}
+            <label for="">ide prueba hiden</label>
           <input type="text" value="{{menu.idMenu}}"  name="idMenu" id="idMenu">
           <div class="mb-3">
             <label for="nombre" class="form-label">Editar Menu</label>
