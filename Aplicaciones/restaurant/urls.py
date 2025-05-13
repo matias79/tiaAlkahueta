@@ -17,7 +17,7 @@ urlpatterns = [
     path('lista_bebidas/', views.lista_bebidas, name="bebidas"),
     
     path('editar_menu/<int:id>', views.editar_menu, name="editar_menu"),
-    path('editar_procesar_menu/', views.procesar_editar_menu, name="editar_precesar_menu"),
+    
     
     path('tabla_menu/', views.tabla_menu, name="tabla_menu"),
     path('tabla_bebidas/', views.tabla_bebidas, name="tabla_bebidas"),
