@@ -1,0 +1,50 @@
+{% extends "restaurant/base.html" %}
+{% load static %}
+{% block title %}Crear Bebida{% endblock title %}
+
+{% block body %}
+<div class="container py-2">
+    <div class="row justify-content-center align-items-center">
+      
+      <!-- Columna 1: Formulario -->
+      <div class="col-12 col-md-6 mb-4">
+        <h3 class="mb-4">Formulario para crear nueva Bebida</h3>
+        <form action="", method="post" >
+            {% csrf_token %}
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre Bebida</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Gaseosa" required>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Precio Bebida</label>
+            <input type="number" class="form-control" id="precio" name="precio" placeholder="25.500" required>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Fecha Creacion</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Detalle Bebida</label>
+            <input type="text" class="form-control" id="detalle" name="detalle" placeholder="Cocacola 1.5" required>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Imagen Bebida</label>
+            <input type="text" class="form-control" id="imagen" name="imagen" placeholder="link imagen internet " required>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+      
+      <!-- Columna 2: Imagen -->
+      <div class="col-12 col-md-6 text-center">
+        <img src="{% static "/img/logo.jpg" %}" width="400px" class="img-fluid rounded shadow" alt="Restaurante">
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock body %}
+
+
+

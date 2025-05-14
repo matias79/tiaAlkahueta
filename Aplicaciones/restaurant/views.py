@@ -83,6 +83,10 @@ def crear_bebidas(request):
         return redirect('/lista_bebidas')
     else:
         return render(request, 'restaurant/crear_bebida.html')
+    
+def editar_bebida(request, id):
+    bebida = Producto.objects.get(idProd=id)
+    return render(request, 'restaurant/editar_bebida.html', {'bebida': bebida})
 
 @login_required(login_url='/login/')
 def tabla_menu(request):
