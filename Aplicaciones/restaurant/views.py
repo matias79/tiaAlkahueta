@@ -85,8 +85,19 @@ def crear_bebidas(request):
         return render(request, 'restaurant/crear_bebida.html')
     
 def editar_bebida(request, id):
-    bebida = Producto.objects.get(idProd=id)
-    return render(request, 'restaurant/editar_bebida.html', {'bebida': bebida})
+    if request.method == 'POST':
+        if request.POST.get("nombre") and request.POST.get("precio") and request.POST.get("fecha") and request.POST.get("detalle") and request.POST.get("imagen"):
+            bebida = Producto.objects.get(idProd=id)
+            bebida.nombreProd = request.POST.get("nombre")
+            bebida.precioProd = request.POST.get("precio")
+            bebida.fecha_creacion_prod = request.POST.get("fecha")
+            bebida.descripcionProd = request.POST.get("detalle")
+            bebida.imagenProd = request.POST.get("imagen")
+            bebida.save()
+            return redirect('/tabla_bebidas')
+        else:
+            bebida = Producto.objects.filter(idProd=id)
+            return render(request, 'restaurant/editar_bebida.html', {'bebida': bebida})
 
 @login_required(login_url='/login/')
 def tabla_menu(request):
