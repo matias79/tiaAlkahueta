@@ -42,9 +42,9 @@ def editar_menu(request, id):
         if request.POST.get("nombre") and request.POST.get("precio") and request.POST.get("detalle") and request.POST.get("imagen"):
             menu = Menu.objects.get(idMenu=id)
             menu.platoMenu=request.POST.get("nombre")
-            menu.platoMenu=request.POST.get("precio")
-            menu.platoMenu=request.POST.get("detalle")
-            menu.platoMenu=request.POST.get("imagen")
+            menu.precioMenu=request.POST.get("precio")
+            menu.descripcionMenu=request.POST.get("detalle")
+            menu.imagenMenu=request.POST.get("imagen")
             menu.save()
             return render(request, 'restaurant/tablamenu.html')
         else:
