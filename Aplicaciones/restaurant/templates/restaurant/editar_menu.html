@@ -11,7 +11,6 @@
         <form action="", method="post" >
             {% csrf_token %}
             {% for menu in  menu %}
-          
           <div class="mb-3">
             <label for="" class="form-label">Editar Menu</label>
             <input type="text" class="form-control" id="nombre" name="nombre" value="{{menu.platoMenu}}">

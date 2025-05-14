@@ -37,8 +37,10 @@ def crear_menu(request):
     else:
         return render(request, 'restaurant/crear_menu.html')
 
-def editar_menu(request, id):   
-    if request.method == 'POST':
+def editar_menu(request, id):
+    menu = Menu.objects.filter(idMenu=id)
+    return render(request, 'restaurant/editar_menu', {'menu':menu})
+    """if request.method == 'POST':
         if request.POST.get("nombre") and request.POST.get("precio") and request.POST.get("detalle") and request.POST.get("imagen"):
             menu = Menu.objects.get(idMenu=id)
             menu.platoMenu=request.POST.get("nombre")
@@ -52,12 +54,9 @@ def editar_menu(request, id):
             context = {
                 'menu': menu
                 }
-            return render(request, 'restaurant/tablamenu.html', context)
+            return render(request, 'restaurant/tablamenu.html', context)"""
         
-   
-
-
-    
+      
 
 @login_required(login_url='/login/')
 def eliminar_menu(request, idmen):
