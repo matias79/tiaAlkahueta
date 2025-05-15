@@ -96,7 +96,7 @@ def editar_bebida(request, id):
             bebida.save()
             return redirect('/tabla_bebidas')
         else:
-            bebida = Producto.objects.filter(idProd=id)
+            bebida = Producto.objects.get(idProd=id)
             return render(request, 'restaurant/editar_bebida.html', {'bebida': bebida})
 
 @login_required(login_url='/login/')
